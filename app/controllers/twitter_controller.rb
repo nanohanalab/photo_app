@@ -1,4 +1,6 @@
 class TwitterController < ApplicationController
+  before_action :logged_in_user
+
   require 'net/http'
   
   def callback
