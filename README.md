@@ -10,7 +10,7 @@ This is a photo collection and tweet posting app for assignments.
 ```
 3.0.2
 ```
-2. Gem install 
+2. Install Gems
 ```bash
 $ gem install bundler
 $ bundle config set --local path 'vendor/bundle'
@@ -21,11 +21,15 @@ $ bundle install
 $ bundle exec rails db:migrate
 $ bundle exec rails db:seed
 ```
-4. Rails server start
+4. Install webpacker
+```
+$ bundle exec rails webpacker:install
+```
+5. Rails server start
 ```bash
 $ bundle exec rails s
 ```
-5. Access　service url
+6. Access　service url
 ```
 http://localhost:3000/
 ```
