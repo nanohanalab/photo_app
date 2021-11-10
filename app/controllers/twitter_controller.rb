@@ -1,5 +1,6 @@
 class TwitterController < ApplicationController
-
+  require 'net/http'
+  
   def callback
     uri = URI('https://arcane-ravine-29792.herokuapp.com/oauth/token')
     p = {
