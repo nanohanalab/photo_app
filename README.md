@@ -25,11 +25,15 @@ $ bundle exec rails db:seed
 ```
 $ bundle exec rails webpacker:install
 ```
-5. Rails server start
+5. Run the test suite [TBA]
+```bash
+bundle exec rails test
+```
+6. Rails server start
 ```bash
 $ bundle exec rails s
 ```
-6. Access　service url
+7. Access service url
 ```
 http://localhost:3000/
 ユーザーID: test1234
