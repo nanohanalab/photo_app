@@ -33,7 +33,7 @@ bundle exec rails test
 ```bash
 $ bundle exec rails s
 ```
-7. Access　service url
+7. Access service url
 ```
 http://localhost:3000/
 ```
