@@ -32,4 +32,6 @@ $ bundle exec rails s
 6. Access　service url
 ```
 http://localhost:3000/
+ユーザーID: test1234
+パスワード: password
 ```

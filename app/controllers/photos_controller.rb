@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
   before_action :logged_in_user
 
   def index
-    @photos = Photo.all
+    @photos = current_user.photos
     @twitter_uri = twitter_uri
   end
 
