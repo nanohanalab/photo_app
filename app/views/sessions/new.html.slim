@@ -6,11 +6,11 @@ h1 ログイン
         - @erros.each do |message|
           li
             = message
-    p
-      = f.label :uid, 'ユーザID'
+    .
+      = f.label :uid, 'ユーザーID'
       = f.text_field :uid
-    p
+    .
       = f.label :password, 'パスワード'
       = f.password_field :password
-    p
+    .
       = f.submit "ログインする"
