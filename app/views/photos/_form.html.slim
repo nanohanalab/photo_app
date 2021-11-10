@@ -1,0 +1,14 @@
+= form_for @photo do |f|
+  - if @photo.errors.any?
+    ul.errors
+      - @photo.errors.full_messages.each do |message|
+        li = message
+  p
+    = f.label :title, 'タイトル'
+    = f.text_field :title
+  p
+    = f.label :image, '画像ファイル'
+    = f.file_field :image
+  = f.hidden_field :user_id
+  .actions = f.submit 'アップロード'
+ 

@@ -1,0 +1,11 @@
+= link_to 'ログアウト', logout_path, method: :delete
+h1 写真一覧
+.
+  p = link_to '写真アップロード', new_photo_path
+  p = link_to 'MyTestApp', logout_path, method: :delete
+.
+  - @photos.each do |photo|
+    .
+      p = photo.title
+      p
+        = image_tag photo.image, :style => 'max-height: 300px; max-width: 300px' if photo.image.attached?
