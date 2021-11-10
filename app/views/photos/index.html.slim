@@ -11,5 +11,5 @@ h1 写真一覧
       - if current_user.twitter_access_token.present? && photo.image.attached?
         - image_url = photo.image
         . 
-          = link_to tweet_path(title: photo.title, image_url: "http://localhost:3000/#{url_for(photo.image)}" ) do
+          = link_to tweet_path(title: photo.title, image_url: "http://localhost:3000#{url_for(photo.image)}" ) do
            = button_tag 'ツイートする'
