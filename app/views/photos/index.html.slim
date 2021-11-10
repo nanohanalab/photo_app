@@ -2,10 +2,14 @@
 h1 写真一覧
 .
   p = link_to '写真アップロード', new_photo_path
-  p = link_to 'MyTestApp', logout_path, method: :delete
+  p = link_to 'MyTestApp', @twitter_uri
 .container
   - @photos.each do |photo|
     .item
       = photo.title
-      p
-        = image_tag photo.image, class:'image' if photo.image.attached?
+      . = image_tag photo.image, class:'image' if photo.image.attached?
+      - if current_user.twitter_access_token.present? && photo.image.attached?
+        - image_url = photo.image
+        . 
+          = link_to tweet_path(title: photo.title, image_url: "http://localhost:3000/#{url_for(photo.image)}" ) do
+           = button_tag 'ツイートする'
