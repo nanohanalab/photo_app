@@ -1,0 +1,14 @@
+default: &default
+  twitter:
+    host: https://arcane-ravine-29792.herokuapp.com
+    authorize_path: /oauth/authorize
+    token_request_path: /oauth/token
+    tweets_path: /api/tweets
+
+# 環境ごとの差がない場合はやや勿体無いような気もしますが、気にせず
+development:
+  <<: *default
+test:
+  <<: *default
+production:
+  <<: *default

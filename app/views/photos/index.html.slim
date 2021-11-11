@@ -2,7 +2,7 @@
 h1 写真一覧
 .
   p = link_to '写真アップロード', new_photo_path
-  p = link_to 'MyTestApp', @twitter_uri
+  p = link_to 'MyTestApp', @twitter_authorize_uri
 .container
   - @photos.each do |photo|
     .item

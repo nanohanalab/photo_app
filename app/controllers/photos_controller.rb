@@ -3,7 +3,7 @@ class PhotosController < ApplicationController
 
   def index
     @photos = current_user.photos
-    @twitter_uri = twitter_uri
+    @twitter_authorize_uri = twitter_authorize_uri
   end
 
   def new
@@ -25,9 +25,9 @@ class PhotosController < ApplicationController
       params.require(:photo).permit(:user_id, :title, :image)
     end
 
-    def twitter_uri
-      host = 'https://arcane-ravine-29792.herokuapp.com'
-      path = '/oauth/authorize?'
+    def twitter_authorize_uri
+      host = Rails.configuration.settings[:twitter][:host]
+      path = Rails.configuration.settings[:twitter][:authorize_path]
       params = {
         'response_type' => 'code',
         'client_id' => '28fa91cecc903483ef240c7e9d6607d267868a05f6c1b3f59e6ea1bd5eabb74f',
@@ -35,6 +35,6 @@ class PhotosController < ApplicationController
         'scope' => '',
         'state' => ''
       }
-      "#{host}#{path}#{URI.encode_www_form(params)}"
+      "#{host}#{path}?#{URI.encode_www_form(params)}"
     end
 end

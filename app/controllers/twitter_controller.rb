@@ -4,7 +4,9 @@ class TwitterController < ApplicationController
   require 'net/http'
   
   def callback
-    uri = URI('https://arcane-ravine-29792.herokuapp.com/oauth/token')
+    host = Rails.configuration.settings[:twitter][:host]
+    path = Rails.configuration.settings[:twitter][:token_request_path]
+    uri = URI("#{host}#{path}")
     p = {
       'code' => params[:code],
       'client_id' => '28fa91cecc903483ef240c7e9d6607d267868a05f6c1b3f59e6ea1bd5eabb74f',
@@ -22,7 +24,9 @@ class TwitterController < ApplicationController
   end
 
   def tweet
-    uri = URI('https://arcane-ravine-29792.herokuapp.com/api/tweets')
+    host = Rails.configuration.settings[:twitter][:host]
+    path = Rails.configuration.settings[:twitter][:tweets_path]
+    uri = URI("#{host}#{path}")
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = uri.scheme === "https"
     body = {
